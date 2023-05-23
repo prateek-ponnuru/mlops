@@ -1,0 +1,21 @@
+datasets:
+  data_profiles:
+    column_mapping:
+      categorical_features:
+        - 'Diplome'
+        - 'Ville'
+      numerical_features:
+        - 'Experience'
+    data_format:
+      header: true
+      separator: ','
+    monitors:
+      - data_drift
+    reference_file: ../data/data_clean.csv
+service:
+  calculation_period_sec: 2
+  min_reference_size: 30
+  moving_reference: false
+  datasets_path: ../data
+  use_reference: true
+  window_size: 5

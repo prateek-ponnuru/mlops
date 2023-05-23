@@ -44,12 +44,14 @@ def predict_profile():
         x = {'Diplome': degree, 'Ville': city,
              'Techlist': skills, 'Experience': exper}
         pred = list(app.model.predict(x))[0]
+        send_to_evidently(x, pred)
         return jsonify({'prediction': list(app.model.predict(x))[0]})
 
 
 def send_to_evidently(x, pred):
     # x['prediction'] = pred
     # requests.request('POST', f"{EVIDENTLY_SERVICE_ADDRESS}/interate/data_profiles", json=[x])
+    # print(resp)
     pass
 
 
